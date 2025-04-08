@@ -5,7 +5,7 @@ const Gallery = ({ tours, setTours, onRemove }) => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
 
-    const url = 'https://course-api.com/react-tours-project';  
+    const url = 'https://api.allorigins.win/raw?url=https://course-api.com/react-tours-project';  //Comment: This section with const url and the link was helped with copilot. 
 
     useEffect(() => {
         const fetchTours = async () => {
