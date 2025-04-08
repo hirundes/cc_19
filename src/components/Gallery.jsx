@@ -7,26 +7,27 @@ const Gallery = ({ tours, setTours, onRemove }) => {
 
     const url = 'https://api.allorigins.win/raw?url=https://course-api.com/react-tours-project';  //Comment: This section with const url and the link was helped with copilot. 
 
+    
+    //Comment: Followed bonus tip for adding error handling. Lead to error in constant loading / Used Copilot for certain sections of the .then and .catch
     useEffect(() => {
-        const fetchTours = async () => {
-            try {
-                setLoading(true);
-                const response = await fetch(url);
+        setLoading(true); // Ensure loading starts when the fetch begins
+        fetch("https://api.allorigins.win/raw?url=https://course-api.com/react-tours-project")
+            .then((response) => {
                 if (!response.ok) {
-                    throw new Error('Failed to fetch tours');
+                    throw new Error("Network response was not ok");
                 }
-                const data = await response.json();
-                setTours(data);
-                setError(false);
-            } catch (err) {
-                console.error(err);
-                setError(true);
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        fetchTours();
+                return response.json();
+            })
+            .then((data) => {
+                console.log(data);
+                setTours(data); 
+                setLoading(false); 
+            })
+            .catch((error) => {
+                console.error("Fetch error:", error);
+                setError(true); 
+                setLoading(false); 
+            });
     }, [setTours]);
 
     if (loading) {
