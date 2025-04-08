@@ -3,7 +3,7 @@ import React, { useState } from "react";
 const TourCard = ({ id, name, info, image, price, onRemove }) => {
     const [readMore, setReadMore] = useState(false);
 
-    return (
+    return ( //Receives props for id, name, info, price, and image. Displays it with Read More and Show Less toggle
         <article className="tour-card">
             <img src={image} alt={name} className="tour-image" />
             <div className="tour-info">
@@ -20,7 +20,7 @@ const TourCard = ({ id, name, info, image, price, onRemove }) => {
                 </button>
             </div>
         </article>
-    );
+    ); //Button "Not Interested" which removes the tour an calls the onRemove(id).
 };
 
 export default TourCard;
