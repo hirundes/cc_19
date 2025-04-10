@@ -14,8 +14,9 @@ const TourCard = ({ id, name, info, image, price, onRemove }) => {
                     {readMore ? info : `${info.substring(0, 200)}...`}
                     <button onClick={() => setReadMore(!readMore)}>
                         {readMore ? "Show Less" : "Read More"}
-                    </button>
+                    </button> {/*Show a full description if readMore is true */}
                 </p>
+                
                 <button className="remove-btn" onClick={() => onRemove(id)}>
                     Not Interested
                 </button>
