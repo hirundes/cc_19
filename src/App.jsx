@@ -12,7 +12,7 @@ function App()  {
 
   return ( //Renders the gallery component and passes state and handlers to children
     <main>
-      <h1>Our Tours</h1>
+      <h1>Our List of Tours</h1>
       <Gallery tours={tours} setTours={setTours} onRemove={removeTour} />
     </main> 
   )

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+//Tour Card renders individual details
 const TourCard = ({ id, name, info, image, price, onRemove }) => {
     const [readMore, setReadMore] = useState(false);
 
